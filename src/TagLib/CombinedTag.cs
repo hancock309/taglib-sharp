@@ -165,27 +165,52 @@ namespace TagLib {
 		{
 			this.tags.Clear ();
 		}
-		
-		#endregion
-		
-		
-		
-		#region Overrides
-		
-		/// <summary>
-		///    Gets the tag types contained in the current instance.
-		/// </summary>
-		/// <value>
-		///    A bitwise combined <see cref="TagLib.TagTypes" />
-		///    containing the tag types contained in the current
-		///    instance.
-		/// </value>
-		/// <remarks>
-		///    This value contains a bitwise combined value from all the
-		///    child tags.
-		/// </remarks>
-		/// <seealso cref="Tag.TagTypes" />
-		public override TagTypes TagTypes {
+
+        #endregion
+
+
+
+        #region Overrides
+
+        // ADDED BY HANCOCK
+        public override string Publisher
+        {
+            get
+            {
+                foreach (Tag tag in tags)
+                {
+                    if (tag == null)
+                        continue;
+
+                    string value = tag.Publisher;
+
+                    if (value != null)
+                        return value;
+                }
+                return null;
+            }
+            set
+            {
+                foreach (Tag tag in tags)
+                    if (tag != null)
+                        tag.Publisher = value;
+            }
+        }
+
+        /// <summary>
+        ///    Gets the tag types contained in the current instance.
+        /// </summary>
+        /// <value>
+        ///    A bitwise combined <see cref="TagLib.TagTypes" />
+        ///    containing the tag types contained in the current
+        ///    instance.
+        /// </value>
+        /// <remarks>
+        ///    This value contains a bitwise combined value from all the
+        ///    child tags.
+        /// </remarks>
+        /// <seealso cref="Tag.TagTypes" />
+        public override TagTypes TagTypes {
 			get {
 				TagTypes types = TagTypes.None;
 				foreach (Tag tag in tags)

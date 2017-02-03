@@ -1213,20 +1213,28 @@ namespace TagLib.Id3v2 {
 		{
 			return frame_list.GetEnumerator ();
 		}
-		
-#endregion
-		
-		
-		
+
+        #endregion
+
+
+
 #region TagLib.Tag
-		
-		/// <summary>
-		///    Gets the tag types contained in the current instance.
-		/// </summary>
-		/// <value>
-		///    Always <see cref="TagTypes.Id3v2" />.
-		/// </value>
-		public override TagTypes TagTypes {
+
+        // ADDED BY HANCOCK
+        public override string Publisher
+        {
+            get { return GetTextAsString(FrameType.TPUB); }
+            set { SetTextFrame(FrameType.TPUB, value); }
+        }
+
+
+        /// <summary>
+        ///    Gets the tag types contained in the current instance.
+        /// </summary>
+        /// <value>
+        ///    Always <see cref="TagTypes.Id3v2" />.
+        /// </value>
+        public override TagTypes TagTypes {
 			get {return TagTypes.Id3v2;}
 		}
 		

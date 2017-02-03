@@ -38,7 +38,10 @@ namespace TagLib.Id3v2 {
        ///    the same result.</para>
        /// </remarks>
 	internal static class FrameType {
-		public static readonly ReadOnlyByteVector APIC = "APIC";
+        // ADDED BY HANCOCK
+        public static readonly ReadOnlyByteVector TPUB = "TPUB";
+
+        public static readonly ReadOnlyByteVector APIC = "APIC";
 		public static readonly ReadOnlyByteVector COMM = "COMM";
 		public static readonly ReadOnlyByteVector EQUA = "EQUA";
 		public static readonly ReadOnlyByteVector GEOB = "GEOB";

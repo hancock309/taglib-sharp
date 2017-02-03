@@ -142,22 +142,29 @@ namespace TagLib {
 	/// </remarks>
 	public abstract class Tag
 	{
-		/// <summary>
-		///    Gets the tag types contained in the current instance.
-		/// </summary>
-		/// <value>
-		///    A bitwise combined <see cref="TagLib.TagTypes" />
-		///    containing the tag types contained in the current
-		///    instance.
-		/// </value>
-		/// <remarks>
-		///    For a standard tag, the value should be intuitive. For
-		///    example, <see cref="TagLib.Id3v2.Tag" /> objects have a
-		///    value of <see cref="TagLib.TagTypes.Id3v2" />. However,
-		///    for tags of type <see cref="TagLib.CombinedTag" /> may
-		///    contain multiple or no types.
-		/// </remarks>
-		public abstract TagTypes TagTypes {get;}
+        // ADDED BY HANCOCK
+        public virtual string Publisher
+        {
+            get { return null; }
+            set { }
+        }
+
+        /// <summary>
+        ///    Gets the tag types contained in the current instance.
+        /// </summary>
+        /// <value>
+        ///    A bitwise combined <see cref="TagLib.TagTypes" />
+        ///    containing the tag types contained in the current
+        ///    instance.
+        /// </value>
+        /// <remarks>
+        ///    For a standard tag, the value should be intuitive. For
+        ///    example, <see cref="TagLib.Id3v2.Tag" /> objects have a
+        ///    value of <see cref="TagLib.TagTypes.Id3v2" />. However,
+        ///    for tags of type <see cref="TagLib.CombinedTag" /> may
+        ///    contain multiple or no types.
+        /// </remarks>
+        public abstract TagTypes TagTypes {get;}
 		
 		/// <summary>
 		///    Gets and sets the title for the media described by the
